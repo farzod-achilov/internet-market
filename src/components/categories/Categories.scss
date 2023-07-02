@@ -1,0 +1,23 @@
+.haeder-bottom__categories {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px 0;
+
+  .active {
+    border-bottom: 3px solid #471aa0;
+  }
+
+  h2 {
+    font-size: 17px;
+    color: #471aa0;
+    border-bottom: 3px solid transparent;
+    padding-bottom: 10px;
+    cursor: pointer;
+
+    &:hover {
+      transition: 0.3s ease;
+      border-bottom: 3px solid #471aa0;
+    }
+  }
+}

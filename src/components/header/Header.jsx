@@ -14,7 +14,7 @@ export default function Header() {
                 <a href="/">
                   <div className="logo">
                     <img src={logo} width={90} height={90} alt="logo" />
-                    <h2>wild market</h2>
+                    <h2>Wild Market</h2>
                   </div>
                 </a>
               </h1>

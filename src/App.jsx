@@ -1,15 +1,11 @@
-import { Outlet } from "react-router-dom";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
+import { useContext } from "react";
+import { AuthContext } from "./context/AuthContent";
+import AuthorizedApp from "./components/auth/AuthorizedApp";
+import UnAuthorizedApp from "./components/auth/UnAuthorizedApp";
 
 function App() {
-  return (
-    <>
-      <Header />
-      <Outlet />
-      <Footer />
-    </>
-  );
+  const { auth } = useContext(AuthContext);
+  return auth.jwt ? <AuthorizedApp /> : <UnAuthorizedApp />;
 }
 
 export default App;
