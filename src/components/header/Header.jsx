@@ -3,6 +3,7 @@ import "./Header.scss";
 import logo from "../../assets/logo.svg";
 import search from "../../assets/search.svg";
 import Categories from "../categories/categories";
+
 export default function Header() {
   return (
     <>
