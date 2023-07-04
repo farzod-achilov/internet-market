@@ -5,7 +5,7 @@ import UnAuthorizedApp from "./components/auth/UnAuthorizedApp";
 
 function App() {
   const { auth } = useContext(AuthContext);
-  return auth.jwt ? <AuthorizedApp /> : <UnAuthorizedApp />;
+  return auth.access_token ? <AuthorizedApp /> : <UnAuthorizedApp />;
 }
 
 export default App;

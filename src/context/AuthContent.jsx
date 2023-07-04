@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 
 const initalContext = {
   access_token: null,
-  user: null,
+  refresh_token: null,
 };
 
 export const AuthContext = createContext(initalContext);
