@@ -8,9 +8,13 @@ function AuthorizedApp() {
   const { auth } = useContext(AuthContext);
   return (
     <>
-      <Header />
-      <Outlet />
-      <Footer />
+      <div className="layout">
+        <Header />
+        <div className="layout__main">
+          <Outlet />
+        </div>
+        <Footer />
+      </div>
     </>
   );
 }

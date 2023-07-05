@@ -1,5 +1,6 @@
 import { useCategories } from "./queries";
 import "./Categories.scss";
+import loading from "../../assets/loading.svg";
 
 export default function Categories() {
   function handleSubmit(evt) {
@@ -20,7 +21,11 @@ export default function Categories() {
   });
   return (
     <>
-      <div className="haeder-bottom__categories">
+      <div className="header-bottom__categories">
+        {error && <small>{error.toString()}</small>}
+        {isLoading && (
+          <img src={loading} width={100} height={100} alt="loading" />
+        )}
         {data?.data?.map((categories) => (
           <h2
             onClick={(evt) => handleSubmit(evt)}

@@ -1,0 +1,33 @@
+.footer {
+  display: flex;
+  justify-content: center;
+  border: 3px solid #471aa0;
+  border-bottom: 0;
+  padding-top: 20px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  max-width: 450px;
+  margin: 0 auto;
+
+  nav {
+    display: flex;
+    gap: 40px;
+
+    .active {
+      border-bottom: 3px solid #471aa0;
+    }
+  }
+  button {
+    border: 0;
+    background-color: transparent;
+    color: #471aa0;
+    padding-bottom: 6px;
+    border-bottom: 3px solid transparent;
+    font-size: 18px;
+
+    &:hover {
+      transition: 0.3s ease;
+      border-bottom: 3px solid #471aa0;
+    }
+  }
+}
