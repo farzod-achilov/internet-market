@@ -1,22 +1,28 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import "./Footer.scss";
+import { AuthContext } from "../../context/AuthContent";
 
 export default function Footer() {
   const pages = ["Categories", "Cart", "Profile"];
   const [anchorElNav, setAnchorElNav] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
+  const { setHome } = useContext(AuthContext);
 
   const handleCloseNavMenu = (page, evt) => {
     setAnchorElNav(null);
+
     if (page === "/") {
-      navigate("/");
+      navigate("/home");
+      setHome(true);
     }
+
     const element = evt.target;
     if (element.classList.contains("active")) {
       element.classList.remove("active");
+      setHome(false);
     } else {
       var activeElements = document.getElementsByClassName("active");
       for (var i = 0; i < activeElements.length; i++) {
@@ -26,38 +32,46 @@ export default function Footer() {
     }
     navigate(`/${page.toLowerCase()}`);
   };
+  function setPathName(page) {
+    location.pathname === `/${page.toLowerCase()}`;
+    if (page === "/") {
+      location.pathname === "/home";
+    }
+  }
 
   return (
     <>
-      <footer>
-        <div className="container">
-          <div className="footer">
-            <nav>
-              <button
-                className={`active `}
-                id={`${anchorElNav}`}
-                type="button"
-                onClick={(evt) => handleCloseNavMenu("/", evt)}
-                onSelect={location.pathname === "/"}
-              >
-                Home
-              </button>
-
-              {pages.map((page) => (
+      <div className="layout__footer">
+        <footer>
+          <div className="container">
+            <div className="footer">
+              <nav>
                 <button
-                  id={page}
+                  className={`active `}
+                  id={`${anchorElNav}`}
                   type="button"
-                  onSelect={location.pathname === `/${page.toLowerCase()}`}
-                  onClick={(evt) => handleCloseNavMenu(page, evt)}
-                  key={page}
+                  onClick={(evt) => handleCloseNavMenu("/", evt)}
+                  onSelect={setPathName("/")}
                 >
-                  {page}
+                  Home
                 </button>
-              ))}
-            </nav>
+
+                {pages.map((page) => (
+                  <button
+                    id={page}
+                    type="button"
+                    onSelect={setPathName(page)}
+                    onClick={(evt) => handleCloseNavMenu(page, evt)}
+                    key={page}
+                  >
+                    {page}
+                  </button>
+                ))}
+              </nav>
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </>
   );
 }

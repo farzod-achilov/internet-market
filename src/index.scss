@@ -42,6 +42,13 @@ body {
 
 .layout__header {
   position: sticky;
+  background-color: #fff;
   top: 0;
+  z-index: 100;
+}
+.layout__footer {
+  position: sticky;
+  background-color: #fff;
+  bottom: 0;
   z-index: 100;
 }

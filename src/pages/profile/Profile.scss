@@ -1,0 +1,82 @@
+.profile {
+  form {
+    display: flex;
+    height: 45vh;
+    gap: 25px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
+      width: 400px;
+    }
+  }
+
+  .active-label,
+  .unactive-label {
+    color: #471aa0;
+    text-align: center;
+    font-family: "Lato", sans-serif;
+  }
+  .active-input {
+    border: 3px solid #bb84e8;
+    padding: 12px 0;
+    padding-right: 30px;
+    padding-left: 20px;
+    border-radius: 10px;
+    width: 250px;
+
+    &:focus-visible {
+      outline: 0;
+      border: 2px solid #bb84e8;
+    }
+
+    &::placeholder {
+      font-family: "Lato", sans-serif;
+      color: #471aa0;
+      font-family: "Lato";
+      font-size: 12px;
+    }
+  }
+  .unactive-input {
+    border: 3px solid transparent;
+    background-color: transparent;
+    padding: 12px 0;
+    padding-right: 30px;
+    padding-left: 20px;
+    border-radius: 10px;
+    width: 250px;
+
+    &:focus-visible {
+      outline: 0;
+      border: 2px solid #bb84e8;
+    }
+
+    &::placeholder {
+      font-family: "Lato", sans-serif;
+      color: #471aa0;
+      font-family: "Lato";
+      font-size: 14px;
+    }
+  }
+
+  .btn-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    button {
+      background-color: transparent;
+      border: 0;
+      color: #471aa0;
+      font-family: "Lato", sans-serif;
+      border: 2px solid #bb84e8;
+      padding: 7px 10px;
+      border-radius: 10px;
+    }
+  }
+}

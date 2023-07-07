@@ -7,7 +7,7 @@ import { AuthContext } from "../../context/AuthContent";
 export default function Register() {
   const elForm = useRef(null);
   const elPassword = useRef(null);
-  const { getUser } = useContext(AuthContext);
+  const { getId } = useContext(AuthContext);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [massage, setMassage] = useState(null);
@@ -35,7 +35,7 @@ export default function Register() {
         avatar: "https://placeimg.com/100/100/",
       })
       .then((data) => {
-        getUser(data.data);
+        getId(data.data.id);
       })
       .catch((err) => setError(err))
       .finally(() => {

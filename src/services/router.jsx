@@ -3,6 +3,8 @@ import App from "../App";
 import Profile from "../pages/profile/Profile";
 import Cart from "../pages/cart/cart";
 import CategoriesPage from "../pages/categories-page/CategoriesPage";
+import Products from "../pages/products/Products";
+import Home from "../pages/home/Home";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +22,14 @@ const router = createBrowserRouter([
       {
         path: "/categories",
         element: <CategoriesPage />,
+      },
+      {
+        path: "/products",
+        element: <Products />,
+      },
+      {
+        path: "/home",
+        element: <Home />,
       },
     ],
   },

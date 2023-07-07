@@ -15,25 +15,28 @@ function getAuthFromStorege() {
   }
 }
 
-function getUserFromStorege() {
+function getIdFromStorege() {
   try {
-    const user = JSON.parse(sessionStorage.getItem("user"));
+    const id = JSON.parse(localStorage.getItem("id"));
 
-    return user;
+    return id;
   } catch (error) {
-    error;
+    console.log(error);
   }
 }
 
 export const AuthContext = createContext(getAuthFromStorege());
+export const UserId = getIdFromStorege();
 
 export function AuthProvider({ children }) {
   const [auth, setAuth] = useState(getAuthFromStorege());
-  const [user, setUser] = useState(getUserFromStorege());
+  const [id, setId] = useState(getIdFromStorege());
+  const [home, setHome] = useState(true);
 
-  function logoOut() {
+  function logOut() {
     setAuth(initialContext);
     sessionStorage.removeItem("auth");
+    localStorage.removeItem("id");
   }
 
   function logIn(data) {
@@ -41,12 +44,14 @@ export function AuthProvider({ children }) {
     sessionStorage.setItem("auth", JSON.stringify(data));
   }
 
-  function getUser(user) {
-    setUser(user);
-    sessionStorage.setItem("id", JSON.stringify(user));
+  function getId(id) {
+    setId(id);
+    localStorage.setItem("id", JSON.stringify(id));
   }
   return (
-    <AuthContext.Provider value={{ auth, logoOut, logIn, getUser, user }}>
+    <AuthContext.Provider
+      value={{ auth, logOut, logIn, getId, id, home, setHome }}
+    >
       {children}
     </AuthContext.Provider>
   );
