@@ -8,10 +8,12 @@ import "./Card.scss";
 
 import { Pagination } from "swiper/modules";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Card({ res, imgs, title, price, id }) {
   const [btnName, setBtnName] = useState("add");
   const [product, setProduct] = useState();
+  const navigate = useNavigate();
 
   Card.propTypes = {
     imgs: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -72,7 +74,11 @@ export default function Card({ res, imgs, title, price, id }) {
           >
             {btnName === "add" ? <img src={cart} alt="cart" /> : "added"}
           </button>
-          <button className="btn-more" type="button">
+          <button
+            onClick={navigate(`/products/${id}`)}
+            className="btn-more"
+            type="button"
+          >
             Show More
           </button>
         </div>

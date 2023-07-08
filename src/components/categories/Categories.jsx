@@ -1,10 +1,19 @@
 import { useCategories } from "./queries";
 import "./Categories.scss";
 import loading from "../../assets/loading.svg";
+import { useSearchParams } from "react-router-dom";
+import getUrlParams from "../../helpers/getUrlParams";
 
 export default function Categories() {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const { data, isLoading, error } = useCategories({
+    limit: 10,
+  });
+
   function handleSubmit(evt) {
     const element = evt.target;
+
+    setSearchParams(getUrlParams("categories", evt.target.id, searchParams));
     if (element.classList.contains("active")) {
       element.classList.remove("active");
     } else {
@@ -16,9 +25,6 @@ export default function Categories() {
     }
   }
 
-  const { data, isLoading, error } = useCategories({
-    limit: 10,
-  });
   return (
     <>
       <div className="header-bottom__categories">

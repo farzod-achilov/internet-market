@@ -32,6 +32,8 @@ export function AuthProvider({ children }) {
   const [auth, setAuth] = useState(getAuthFromStorege());
   const [id, setId] = useState(getIdFromStorege());
   const [home, setHome] = useState(true);
+  const [search, setSearch] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   function logOut() {
     setAuth(initialContext);
@@ -50,7 +52,19 @@ export function AuthProvider({ children }) {
   }
   return (
     <AuthContext.Provider
-      value={{ auth, logOut, logIn, getId, id, home, setHome }}
+      value={{
+        auth,
+        logOut,
+        logIn,
+        getId,
+        id,
+        home,
+        setHome,
+        search,
+        setSearch,
+        modalOpen,
+        setModalOpen,
+      }}
     >
       {children}
     </AuthContext.Provider>
