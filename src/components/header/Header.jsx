@@ -2,7 +2,7 @@ import "./Header.scss";
 
 import logo from "../../assets/logo.svg";
 import search from "../../assets/search.svg";
-import Categories from "../categories/categories";
+import Categories from "../categories/Categories";
 import { useSearchParams } from "react-router-dom";
 import getUrlParams from "../../helpers/getUrlParams";
 import { useContext, useRef } from "react";
