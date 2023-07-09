@@ -30,4 +30,13 @@
       border-bottom: 3px solid #471aa0;
     }
   }
+  @media (max-width: 412px) {
+    max-width: 330px;
+    nav {
+      gap: 20px;
+    }
+    button {
+      font-size: 15px;
+    }
+  }
 }

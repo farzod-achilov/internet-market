@@ -14,7 +14,7 @@ export default function UnAuthorizedApp() {
   return (
     <div className="auth-wrapper">
       <div className="auth">
-        <h1 className="auth-logo">
+        <h1 className="auth__logo">
           <a href="/">
             <div className="logo">
               <img src={logo} width={200} height={200} alt="logo" />

@@ -79,4 +79,19 @@
       border-radius: 10px;
     }
   }
+
+  @media (max-width: 412px) {
+    form {
+      height: 100%;
+      gap: 10px;
+
+      div {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+    .btn-wrapper {
+      flex-direction: row;
+    }
+  }
 }

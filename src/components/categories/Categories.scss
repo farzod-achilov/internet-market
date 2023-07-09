@@ -20,4 +20,9 @@
       border-bottom: 3px solid #471aa0;
     }
   }
+  @media (max-width: 412px) {
+    h2 {
+      font-size: 15px;
+    }
+  }
 }

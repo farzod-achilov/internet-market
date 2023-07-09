@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useRef, useState } from "react";
 import eye from "../../assets/eye.png";
+import closedEye from "../../assets/closed-eye.png";
 import { AuthContext } from "../../context/AuthContent";
 
 export default function Login() {
@@ -15,10 +16,10 @@ export default function Login() {
 
     if (inputPassword.type === "text") {
       inputPassword.setAttribute("type", "password");
-      evt.target.setAttribute("src", "/src/assets/closed-eye.png");
+      evt.target.setAttribute("src", eye);
     } else {
       inputPassword.setAttribute("type", "text");
-      evt.target.setAttribute("src", "/src/assets/eye.png");
+      evt.target.setAttribute("src", closedEye);
     }
   }
   function handleSubmit(evt) {
@@ -65,7 +66,7 @@ export default function Login() {
                 required
                 name="password"
                 id="password"
-                type="text"
+                type="password"
               />
               <img
                 className="register__eye"

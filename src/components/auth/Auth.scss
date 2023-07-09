@@ -7,7 +7,6 @@
 }
 
 .register-wrapper {
-  width: 30vw;
   padding-bottom: 20px;
 }
 
@@ -75,9 +74,29 @@
       text-align: center;
     }
   }
+  @media (max-width: 412px) {
+    form {
+      label {
+        font-size: 20px;
+      }
+      input {
+        padding-left: 15px;
+        padding-right: 0px;
+      }
+      div {
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+    &__eye {
+      right: 42px;
+      bottom: 6px;
+    }
+  }
 }
 
 .auth {
+  padding: 0 20px;
   padding-bottom: 30px;
   padding-top: 10px;
   border: 5px solid #bb84e8;
@@ -108,7 +127,7 @@
     }
   }
 
-  &-logo {
+  &__logo {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -127,6 +146,21 @@
         padding-top: 5px;
         color: #471aa0;
         font-size: 44px;
+      }
+    }
+  }
+  @media (max-width: 412px) {
+    &__btn {
+    }
+    &__logo {
+      img {
+        width: 150px;
+        height: 150px;
+      }
+      .logo {
+        h2 {
+          font-size: 30px;
+        }
       }
     }
   }
