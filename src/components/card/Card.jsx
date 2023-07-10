@@ -8,14 +8,11 @@ import "./Card.scss";
 
 import { Pagination } from "swiper/modules";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Card({ data, imgs, title, price, id }) {
   const [btnName, setBtnName] = useState("add");
   const [product, setProduct] = useState();
-  const location = useLocation();
-
-  location.pathname === `/${id}`;
 
   Card.propTypes = {
     imgs: PropTypes.arrayOf(PropTypes.string).isRequired,
