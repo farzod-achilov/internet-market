@@ -8,19 +8,21 @@ import "./Card.scss";
 
 import { Pagination } from "swiper/modules";
 import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-export default function Card({ res, imgs, title, price, id }) {
+export default function Card({ data, imgs, title, price, id }) {
   const [btnName, setBtnName] = useState("add");
   const [product, setProduct] = useState();
-  // const navigate = useNavigate();
+  const location = useLocation();
+
+  location.pathname === `/${id}`;
 
   Card.propTypes = {
     imgs: PropTypes.arrayOf(PropTypes.string).isRequired,
     title: PropTypes.arrayOf(PropTypes.string).isRequired,
     id: PropTypes.arrayOf(PropTypes.string).isRequired,
     price: PropTypes.arrayOf(PropTypes.string).isRequired,
-    res: PropTypes.arrayOf(PropTypes.string).isRequired,
+    data: PropTypes.arrayOf(PropTypes.string).isRequired,
   };
 
   function setItemToLocalStorage(key, value) {
@@ -30,7 +32,7 @@ export default function Card({ res, imgs, title, price, id }) {
   function handleAddtoCart() {
     if (btnName === "add") {
       setBtnName("added");
-      setProduct(JSON.stringify(res));
+      setProduct(JSON.stringify(data));
       setItemToLocalStorage("product", product);
     } else {
       setBtnName("add");
@@ -74,12 +76,8 @@ export default function Card({ res, imgs, title, price, id }) {
           >
             {btnName === "add" ? <img src={cart} alt="cart" /> : "added"}
           </button>
-          <button
-            // onClick={navigate(`/products/${id}`)}
-            className="btn-more"
-            type="button"
-          >
-            Show More
+          <button className="btn-more" type="button">
+            <Link to={`/products/${id}`}>Show More</Link>
           </button>
         </div>
       </div>
