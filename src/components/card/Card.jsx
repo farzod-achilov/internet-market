@@ -7,12 +7,14 @@ import "swiper/css/pagination";
 import "./Card.scss";
 
 import { Pagination } from "swiper/modules";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthContent";
 
 export default function Card({ data, imgs, title, price, id }) {
   const [btnName, setBtnName] = useState("add");
   const [product, setProduct] = useState();
+  const { setHome } = useContext(AuthContext);
 
   Card.propTypes = {
     imgs: PropTypes.arrayOf(PropTypes.string).isRequired,
@@ -34,6 +36,12 @@ export default function Card({ data, imgs, title, price, id }) {
     } else {
       setBtnName("add");
     }
+  }
+
+  function handleSetHome() {
+    setHome(false);
+
+    sessionStorage.setItem("productId", id);
   }
 
   return (
@@ -74,7 +82,9 @@ export default function Card({ data, imgs, title, price, id }) {
             {btnName === "add" ? <img src={cart} alt="cart" /> : "added"}
           </button>
           <button className="btn-more" type="button">
-            <Link to={`/products/${id}`}>Show More</Link>
+            <Link onClick={() => handleSetHome()} to={`/products/${id}`}>
+              Show More
+            </Link>
           </button>
         </div>
       </div>
